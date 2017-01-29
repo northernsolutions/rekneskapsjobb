@@ -1,0 +1,52 @@
+<page id="jobs_index">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <ol class="breadcrumb">
+          <li><a href="#">Hjem</a></li>
+          <li class="active">Ledige Stillinger</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="jobs-index-header">
+              <h4 class="bold no-margin-bottom"><%= @jobs.count %> Ledige Stillinger</h4>
+            </div>
+          </div>
+        </div>
+        <% @jobs.each do |job| %>
+          <%= link_to job do %>
+            <div class="row" style="margin-bottom:20px;">
+              <div class="col-md-3 col-xs-6">
+                <%= image_tag job.employer.logo, class:"thumbnail" %>
+              </div>
+              <div class="col-md-9 col-xs-12">
+                <% if job.exclusive %><p><span class="label label-default" style="background:#FFC107;color:#fff;font-weight:500;border-radius:0px;font-size:14px;">Exclusive</span></p><% end %>
+                <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#212121 !important;"><%= job.employer.name %></span> &middot; <%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></p>
+                <h4 class="bold no-margin-bottom"><%= job.title %></h4>
+                <p><%= truncate(job.content, length: 150, :escape => false) %></p>
+                <%= link_to "Vise annonse", job, class:"btn btn-default", style:"background:#FAFAFA;border-color:#f5f5f5;color:#212121;border-radius:0px;" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="page">
+              <%= paginate @jobs, :theme => 'twitter-bootstrap-3' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+</page>
