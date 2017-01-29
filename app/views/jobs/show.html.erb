@@ -1,2 +1,71 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<page id="jobs_show">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <ol class="breadcrumb">
+          <li><%= link_to "Hjem", root_path %></li>
+          <li><%= link_to "Ledige Stillinger", jobs_path %></li>
+          <li class="active"><%= @job.title %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <% if @job.exclusive %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= image_tag @job.employer.header, class:"thumbnail" %>
+            </div>
+          </div>
+        <% end %>
+        <div class="row" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #fafafa;">
+          <div class="col-md-3 col-xs-6">
+            <%= image_tag @job.employer.logo, class:"thumbnail" %>
+          </div>
+          <div class="col-md-9 col-xs-12">
+            <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#212121 !important;"><%= @job.employer.name %></span> &middot; <%= @job.location %> &middot; <%= @job.category.name %> &middot; <%= @job.type.name %></p>
+            <h4 class="bold"><%= @job.title %></h4>
+            <% if @job.employer.profile %><%= link_to "Vise bedriftsprofil", @job.employer, class:"btn btn-default", style:"background:#FFC107;border-color:#FFC107;color:#fff;border-radius:0px;" %><% end %>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom:20px;">
+          <div class="col-md-12">
+            <span class="justify"><%= @job.content %></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="width:100%;background:#FFC107;border-radius:0px;border-color:#FFC107;color:#fff;font-weight:500;">
+              Søk nå (innan <%= @job.date %>)
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+</page>
+
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Søk nå</h4>
+      </div>
+      <div class="modal-body">
+        <%= @job.apply %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Lukk</button>
+      </div>
+    </div>
+  </div>
+</div>

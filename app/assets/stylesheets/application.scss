@@ -60,18 +60,13 @@ h4 {
   color:#212121;
 }
 
-@media (min-width: 1200px) {
-  .container {
-      width: 1040px;
-  }
-}
-
-.no-margin-bottom {
-  margin-bottom: 0px !important;
+p {
+    margin-bottom: 10px;
+    margin-top: 0px;
 }
 
 .jobs-index-header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #FAFAFA;
 }
@@ -93,6 +88,8 @@ h4 {
 .thumbnail {
   width:100%;
   border:none;
+  padding:0px !important;
+  border-radius: 0px;
 }
 
 .bold {
@@ -124,7 +121,11 @@ a:hover {
 .page {
   text-align: center;
   border-top:1px solid #fafafa;
-  margin-top:20px;
+  margin-top:0px;
   margin-bottom:20px;
   padding-top:20px;
+}
+
+.justify {
+  text-align: justify !important;
 }

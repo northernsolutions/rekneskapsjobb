@@ -17,13 +17,13 @@
         <div class="row">
           <div class="col-md-12">
             <div class="jobs-index-header">
-              <h4 class="bold no-margin-bottom"><%= @jobs.count %> Ledige Stillinger</h4>
+              <h4 class="bold no-margin-bottom" style="margin-bottom:0px !important;"><%= @jobs.count %> Ledige Stillinger</h4>
             </div>
           </div>
         </div>
         <% @jobs.each do |job| %>
           <%= link_to job do %>
-            <div class="row" style="margin-bottom:20px;">
+            <div class="row" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #fafafa;">
               <div class="col-md-3 col-xs-6">
                 <%= image_tag job.employer.logo, class:"thumbnail" %>
               </div>
