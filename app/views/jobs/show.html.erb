@@ -1,20 +1,24 @@
 <page id="jobs_show">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <ol class="breadcrumb">
-          <li><%= link_to "Hjem", root_path %></li>
-          <li><%= link_to "Ledige Stillinger", jobs_path %></li>
-          <li class="active"><%= @job.title %></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
       <div class="col-md-2">
+        <% if @job.exclusive %>
+        <% else %>
+          <% @banners.each do |banner| %>
+            <%= image_tag banner.left, class:"thumbnail" %>
+          <% end %>
+        <% end %>
       </div>
       <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12">
+            <ol class="breadcrumb">
+              <li><%= link_to "Hjem", root_path %></li>
+              <li><%= link_to "Ledige Stillinger", jobs_path %></li>
+              <li class="active"><%= @job.title %></li>
+            </ol>
+          </div>
+        </div>
         <% if @job.exclusive %>
           <div class="row">
             <div class="col-md-12">
@@ -22,7 +26,7 @@
             </div>
           </div>
         <% end %>
-        <div class="row" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #fafafa;">
+        <div class="row" style="margin-bottom:20px;">
           <div class="col-md-3 col-xs-6">
             <%= image_tag @job.employer.logo, class:"thumbnail" %>
           </div>
@@ -47,6 +51,12 @@
         </div>
       </div>
       <div class="col-md-2">
+        <% if @job.exclusive %>
+        <% else %>
+          <% @banners.each do |banner| %>
+            <%= image_tag banner.right, class:"thumbnail" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,19 +1,20 @@
 <page id="jobs_index">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <ol class="breadcrumb">
-          <li><a href="#">Hjem</a></li>
-          <li class="active">Ledige Stillinger</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
       <div class="col-md-2">
+        <% @banners.each do |banner| %>
+          <%= image_tag banner.left, class:"thumbnail" %>
+        <% end %>
       </div>
       <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12">
+            <ol class="breadcrumb">
+              <li><a href="#">Hjem</a></li>
+              <li class="active">Ledige Stillinger</li>
+            </ol>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-12">
             <div class="jobs-index-header">
@@ -23,7 +24,7 @@
         </div>
         <% @jobs.each do |job| %>
           <%= link_to job do %>
-            <div class="row" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #fafafa;">
+            <div class="row" style="margin-bottom:20px;">
               <div class="col-md-3 col-xs-6">
                 <%= image_tag job.employer.logo, class:"thumbnail" %>
               </div>
@@ -46,6 +47,9 @@
         </div>
       </div>
       <div class="col-md-2">
+        <% @banners.each do |banner| %>
+          <%= image_tag banner.right, class:"thumbnail" %>
+        <% end %>
       </div>
     </div>
   </div>
