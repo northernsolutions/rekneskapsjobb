@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129192855) do
+ActiveRecord::Schema.define(version: 20170129194230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170129192855) do
   end
 
   create_table "employers", force: :cascade do |t|
-    t.boolean  "profile",    default: false, null: false
+    t.boolean  "profile",             default: false, null: false
     t.string   "name"
     t.text     "summary"
     t.text     "about"
@@ -64,8 +64,16 @@ ActiveRecord::Schema.define(version: 20170129192855) do
     t.string   "linkedin"
     t.string   "youtube"
     t.string   "instagram"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "header_file_name"
+    t.string   "header_content_type"
+    t.integer  "header_file_size"
+    t.datetime "header_updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "jobs", force: :cascade do |t|

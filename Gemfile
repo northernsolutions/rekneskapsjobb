@@ -22,6 +22,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "paperclip", "~> 5.0.0"
 
 group :development, :test do
   gem 'byebug', platform: :mri
