@@ -18,9 +18,10 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  color:#212121;
+  color:#424242;
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+  font-size:13px !important;
 }
 
 h4 {
@@ -33,23 +34,24 @@ h4 {
     border: none;
     box-shadow: 0 0 5px rgba(0,0,0,0.1) !important;
     border-radius: 0px;
+    margin-bottom: 0px;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color:#212121;
+  color:#424242;
   font-weight: 500;
 }
 
 .navbar-default .navbar-brand {
-  color:#212121;
+  color:#424242;
   font-weight: 800;
-  font-size:20px;
 }
 
 .breadcrumb {
   background:#FAFAFA;
   border-radius: 0px;
   font-weight: 500;
+  margin-bottom: 30px;
 }
 
 .breadcrumb > .active {
@@ -57,7 +59,7 @@ h4 {
 }
 
 .breadcrumb a {
-  color:#212121;
+  color:#424242;
 }
 
 p {
@@ -66,8 +68,8 @@ p {
 }
 
 .jobs-index-header {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
     border-bottom: 1px solid #FAFAFA;
 }
 
@@ -105,7 +107,7 @@ p {
 }
 
 a {
-  color:#212121;
+  color:#424242;
 }
 
 a:hover {
@@ -122,10 +124,80 @@ a:hover {
   text-align: center;
   border-top:1px solid #fafafa;
   margin-top:0px;
-  margin-bottom:20px;
-  padding-top:20px;
+  margin-bottom:30px;
+  padding-top:30px;
 }
 
 .justify {
   text-align: justify !important;
+}
+
+.center {
+  text-align: center;
+}
+
+.padding-48 {
+  padding:48px 0px;
+}
+
+.pricing-table {
+  border:1px solid #f5f5f5;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.pricing-table-basic {
+  color:#656565 !important;
+}
+
+.pricing-table-exclusive {
+  box-shadow:0 0 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.pricing-table-header {
+  padding:30px;
+  text-align: center;
+}
+
+.pricing-table-content {
+  padding:0px 30px;
+}
+
+.pricing-table-footer {
+  padding:30px;
+  text-align: center;
+}
+
+.line-through {
+  text-decoration: line-through !important;
+}
+
+.pricing-info {
+  text-align: center;
+  font-weight: 500;
+}
+
+.page-header {
+    /* padding-bottom: 9px; */
+    margin: 0px;
+    border-bottom: none;
+    padding: 48px 0px;
+}
+
+@media (min-width: 1200px) {
+.container {
+    width: 1040px;
+}
+}
+
+h3 {
+  margin-top:0px;
+}
+
+.btn {
+  font-size:13px !important;
+}
+
+.thumbnail {
+  margin-bottom: 30px;
 }

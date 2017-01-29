@@ -34,10 +34,10 @@
         <li><%= link_to "Ledige Stillinger", root_path %></li>
         <li><%= link_to "Bedriftsprofiler", employers_path %></li>
         <li><%= link_to "Let the job find you", employers_path %></li>
-        <li><%= link_to "Om Tjensten", employers_path %></li>
+        <li><%= link_to "Om Tjensten", about_index_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li style="background:#FFC107;"><a href="#" style="color:#fff !important;">Annonsering</a></li>
+        <li><%= link_to "Annonsering", for_employers_path, style:"color:#FFC107;" %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
