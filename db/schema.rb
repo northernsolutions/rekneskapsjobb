@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130100953) do
+ActiveRecord::Schema.define(version: 20170130104926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,10 +88,11 @@ ActiveRecord::Schema.define(version: 20170130100953) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.datetime "published_at"
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.boolean  "exclusive",   default: false, null: false
+    t.boolean  "exclusive",    default: false, null: false
     t.string   "title"
     t.text     "content"
     t.string   "location"
@@ -100,9 +101,10 @@ ActiveRecord::Schema.define(version: 20170130100953) do
     t.integer  "employer_id"
     t.integer  "category_id"
     t.integer  "type_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.text     "summary"
+    t.datetime "published_at"
     t.index ["category_id"], name: "index_jobs_on_category_id", using: :btree
     t.index ["employer_id"], name: "index_jobs_on_employer_id", using: :btree
     t.index ["type_id"], name: "index_jobs_on_type_id", using: :btree

@@ -1,5 +1,33 @@
 ActiveAdmin.register Job do
-  permit_params :exclusive, :title, :content, :location, :date, :apply, :summary, :employer_id, :category_id, :type_id
+  permit_params :exclusive, :title, :content, :location, :date, :apply, :summary, :employer_id, :category_id, :published_at, :type_id
+
+  scope :all
+  scope :published
+  scope :unpublished
+
+  action_item :view, only: :show do
+    link_to 'View on site', job_path(job) if job.published_at?
+  end
+
+  action_item :publish, only: :show do
+    link_to "Publish", publish_admin_job_path(job), method: :put if !job.published_at?
+  end
+
+  action_item :unpublish, only: :show do
+    link_to "Unpublish", unpublish_admin_job_path(job), method: :put if job.published_at?
+  end
+
+  member_action :publish, method: :put do
+    job = Job.find(params[:id])
+    job.update(published_at: Time.zone.now)
+    redirect_to admin_job_path(job)
+  end
+
+  member_action :unpublish, method: :put do
+    job = Job.find(params[:id])
+    job.update(published_at: nil)
+    redirect_to admin_job_path(job)
+  end
 
   show do |t|
     attributes_table do
@@ -10,6 +38,7 @@ ActiveAdmin.register Job do
       row :location
       row :date
       row :apply
+      row :published_at
       row :employer
       row :category
       row :type
