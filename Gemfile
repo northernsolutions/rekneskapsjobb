@@ -26,6 +26,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug', platform: :mri

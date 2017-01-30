@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130104926) do
+ActiveRecord::Schema.define(version: 20170130112126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 20170130104926) do
     t.datetime "updated_at",                   null: false
     t.text     "summary"
     t.datetime "published_at"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["category_id"], name: "index_jobs_on_category_id", using: :btree
     t.index ["employer_id"], name: "index_jobs_on_employer_id", using: :btree
     t.index ["type_id"], name: "index_jobs_on_type_id", using: :btree
