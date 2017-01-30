@@ -1,6 +1,6 @@
 class EmployersController < ApplicationController
   def index
-    @employers = Employer.all
+    @employers = Employer.all.order('published_at DESC')
   end
 
   def show
