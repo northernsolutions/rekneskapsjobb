@@ -41,6 +41,34 @@
             <span class="justify"><%= @job.content.html_safe %></span>
           </div>
         </div>
+        <div class="row" style="margin-bottom:30px;">
+          <div class="col-md-12">
+            <div class="job-info" style="background:#fafafa;padding:24px;">
+              <div class="row">
+                <div class="col-md-3">
+                  <p class="bold">Arbeidssted</p>
+                  <p><%= @job.location %></p>
+                  <p class="bold">Søknadsfrist</p>
+                  <p><%= @job.date %></p>
+                </div>
+                <div class="col-md-3">
+                  <p class="bold">Type</p>
+                  <p><%= @job.type.name %></p>
+                  <p class="bold">Registrert</p>
+                  <p><%= @job.published_at %></p>
+                </div>
+                <div class="col-md-3">
+                  <p class="bold">Kategori</p>
+                  <p><%= @job.category.name %></p>
+                </div>
+                <div class="col-md-3">
+                  <p class="bold">Antal stillinger</p>
+                  <p><%= @job.number %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-12">
             <!-- Button trigger modal -->
