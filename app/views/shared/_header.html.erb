@@ -2,14 +2,23 @@
   <div class="container">
     <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="background:#2196F3;border-color:#2196F3;color:#fff;border-radius:0px;">
-        Northern Solutions Network
+        Northern Solutions Network <i class="fa fa-angle-down" aria-hidden="true"></i>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="background:#fff;border:1px solid #f5f5f5;box-shadow:0 0 5px rgba(0, 0, 0, 0.1) !important;margin:0px !important;border-radius:0px;">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
+        <%= image_tag("ns-logo.jpg", class:"thumbnail thumbnail-ns", style:"width: 170px !important;padding: 16px !important;margin-bottom:0px;") %>
+            <h6 class="dropdown-header">Our Sites</h6>
+  			    <li><a class="dropdown-item" href="http://www.helsejobbnorge.no">Helsejobbnorge.no</a></li>
+  			    <li><a class="dropdown-item" href="http://www.halsopersonal.se">Hälsopersonal.se</a></li>
+  			    <li><a class="dropdown-item" href="http://www.lakarpersonal.se">Läkarpersonal.se</a></li>
+  			    <li><a class="dropdown-item" href="http://www.teknikpersonal.se">Tekniskpersonal.se</a></li>
+  			    <li><a class="dropdown-item" href="http://www.teknikportalen.no">Teknikportalen.no</a></li>
+  			    <li><a class="dropdown-item" href="http://www.rekneskapsjobb.no">Rekneskapsjobb.no</a></li>
+  			    <li><a class="dropdown-item" href="http://www.legepersonal.no">Legepersonal.no</a></li>
+  			    <h6 class="dropdown-header">The Company</h6>
+  			    <li><a class="dropdown-item" href="http://www.northernsolutions.se">About</a></li>
+  			    <li><a class="dropdown-item" href="#">Get in Touch</a></li>
+  			    <h6 class="dropdown-header">Follow</h6></li>
+  			    <li><a class="dropdown-item"><i class="fa fa-facebook" style="font-size:1.25rem;"></i> &nbsp; <i class="fa fa-twitter" style="font-size:1.25rem;"></i> &nbsp; <i class="fa fa-instagram" style="font-size:1.25rem;"></i></a></li>
       </ul>
     </div>
   </div>
@@ -37,7 +46,7 @@
         <li><%= link_to "Om Tjensten", about_index_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Annonsering", for_employers_path, style:"color:#FFC107;" %></li>
+        <li><%= link_to "Annonsering", for_employers_path, class:"btn btn-default navbar-btn", style:"background:#FFC107;border-color:#FFC107;color:#fff;border-radius:0px;padding:6px 12px;" %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

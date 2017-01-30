@@ -28,8 +28,8 @@ ActiveAdmin.register Employer do
       f.input :profile
       f.input :name
       f.input :summary
-      f.input :about
-      f.input :vision
+      f.input :about, as: :html_editor
+      f.input :vision, as: :html_editor
       f.input :website
       f.input :facebook
       f.input :twitter

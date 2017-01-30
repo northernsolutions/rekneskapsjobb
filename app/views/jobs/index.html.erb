@@ -1,20 +1,20 @@
 <page id="jobs_index">
   <div class="container" style="margin-top:30px;">
     <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="#">Hjem</a></li>
+          <li class="active">Ledige Stillinger</li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-2">
         <% @banners.each do |banner| %>
           <%= image_tag banner.left, class:"thumbnail" %>
         <% end %>
       </div>
       <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-12">
-            <ol class="breadcrumb">
-              <li><a href="#">Hjem</a></li>
-              <li class="active">Ledige Stillinger</li>
-            </ol>
-          </div>
-        </div>
         <div class="row">
           <div class="col-md-12">
             <div class="jobs-index-header">
@@ -33,7 +33,9 @@
                 <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#424242 !important;"><%= job.employer.name %></span> &middot; <%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></p>
                 <h4 class="bold no-margin-bottom"><%= job.title %></h4>
                 <p><%= truncate(job.content, length: 150, :escape => false) %></p>
-                <%= link_to "Vise annonse", job, class:"btn btn-default", style:"background:#FAFAFA;border-color:#EEEEEE;color:#424242;border-radius:0px;" %>
+                <%= link_to "Vise annonse", job, class:"btn btn-default", style:"background:#FAFAFA;border-color:#EEEEEE;color:#424242;border-radius:0px;" %> <% if job.exclusive %><% if job.employer.profile %> <%= link_to "Vise bedriftsprofil", job.employer, class:"btn btn-default", style:"background:#FFC107;border-color:#FFA000;color:#fff;border-radius:0px;" %><% end %> <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="background:#009688;border-radius:0px;border-color:#00796B;color:#fff;font-weight:500;">
+                  Søk nå (innan <%= job.date %>)
+                </button><% end %>
               </div>
             </div>
           <% end %>
@@ -54,3 +56,22 @@
     </div>
   </div>
 </page>
+
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Søk nå</h4>
+      </div>
+      <div class="modal-body">
+          <% @jobs.each do |job| %>
+        <%= job.apply.html_safe %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Lukk</button>
+      </div>
+    </div>
+  </div>
+</div>

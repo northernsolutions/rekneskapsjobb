@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ //= require active_admin/editor/wysiwyg
  */
 
 @import "bootstrap-sprockets";
@@ -200,4 +201,51 @@ h3 {
 
 .thumbnail {
   margin-bottom: 30px;
+}
+
+.nav-tabs-justified > .active > a, .nav-tabs.nav-justified > .active > a, .nav-tabs-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs-justified > .active > a:focus, .nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #FFC107 !important;
+    background: #FFC107 !important;
+    border: 1px solid #FFC107 !important;
+    border-radius: 0rem;
+    color: #fff;
+}
+
+.nav-tabs-justified > li > a, .nav-tabs.nav-justified > li > a {
+    border-bottom: 1px solid #424242;
+    border-radius: 0px;
+    border: 1px solid #424242;
+    background: #424242;
+    color: #fff;
+}
+
+.nav-tabs.nav-justified > li > a:hover {
+  border-bottom-color: #FFC107 !important;
+  background: #FFC107 !important;
+  border: 1px solid #FFC107 !important;
+  border-radius: 0rem;
+  color: #fff;
+}
+
+h2 {
+  margin-top:0px;
+}
+
+h6 {
+  margin-top:0px;
+}
+
+.dropdown-header {
+  font-weight: 500;
+  color:#656565;
+  margin-bottom:0px;
+}
+
+.dropdown-menu > li > a {
+  font-weight:500;
+  color:#424242;
+}
+
+.btn:hover {
+  color:#fff !important;
 }

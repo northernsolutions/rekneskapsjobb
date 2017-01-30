@@ -25,6 +25,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "paperclip", "~> 5.0.0"
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
 
 group :development, :test do
   gem 'byebug', platform: :mri
