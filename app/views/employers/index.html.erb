@@ -17,17 +17,19 @@
     <div class="row">
       <div class="col-md-12">
         <% @employers.each do |employer| %>
-          <% if employer.profile %>
-              <div class="col-md-4">
-                <div class="employer-card" style="margin-bottom:36px;">
-                  <%= image_tag employer.header, class:"thumnail", style:"width:100%;border-top-left-radius:0px;border-top-right-radius:0px;margin-bottom:15px;" %>
-                  <%= image_tag employer.logo, class:"thumnail", style:"border-top-left-radius:3px;border-top-right-radius:3px;margin-bottom:15px;" %>
-                  <h4 class="bold" style="margin-bottom:0px;"><%= employer.name %></h4>
-                  <p class="text-small text-muted bold uppercase"><%= employer.jobs.count %> ledige stillinger</p>
-                  <p class="text-muted justify" style="margin-bottom: 24px !important;margin-bottom:0px;"><%= employer.summary %></p>
-                  <%= link_to "Visa Bedriftsprofil", employer, class:"btn btn-view-employer", style:"width:100%;background:#FFC107;color:#fff;font-weight:500;border-color:#FFC107;border-radius:0px;" %>
+          <% if employer.published_at? %>
+            <% if employer.profile %>
+                <div class="col-md-4">
+                  <div class="employer-card" style="margin-bottom:36px;">
+                    <%= image_tag employer.header, class:"thumnail", style:"width:100%;border-top-left-radius:0px;border-top-right-radius:0px;margin-bottom:15px;" %>
+                    <%= image_tag employer.logo, class:"thumnail", style:"border-top-left-radius:3px;border-top-right-radius:3px;margin-bottom:15px;" %>
+                    <h4 class="bold" style="margin-bottom:0px;"><%= employer.name %></h4>
+                    <p class="text-small text-muted bold uppercase"><%= employer.jobs.count %> ledige stillinger</p>
+                    <p class="text-muted justify" style="margin-bottom: 24px !important;margin-bottom:0px;"><%= employer.summary %></p>
+                    <%= link_to "Visa Bedriftsprofil", employer, class:"btn btn-view-employer", style:"width:100%;background:#FFC107;color:#fff;font-weight:500;border-color:#FFC107;border-radius:0px;" %>
+                  </div>
                 </div>
-              </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>

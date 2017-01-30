@@ -18,26 +18,28 @@
         <div class="row">
           <div class="col-md-12">
             <div class="jobs-index-header">
-              <h4 class="bold no-margin-bottom" style="margin-bottom:0px !important;"><%= @jobs.count %> Ledige Stillinger</h4>
+              <h4 class="bold no-margin-bottom" style="margin-bottom:0px !important;">Ledige Stillinger</h4>
             </div>
           </div>
         </div>
         <% @jobs.each do |job| %>
-          <%= link_to job do %>
-            <div class="row" style="margin-bottom:30px;">
-              <div class="col-md-3 col-xs-6">
-                <%= image_tag job.employer.logo, class:"thumbnail" %>
+          <% if job.published_at? %>
+            <%= link_to job do %>
+              <div class="row" style="margin-bottom:30px;">
+                <div class="col-md-3 col-xs-6">
+                  <%= image_tag job.employer.logo, class:"thumbnail" %>
+                </div>
+                <div class="col-md-9 col-xs-12">
+                  <% if job.exclusive %><p><span class="label label-default" style="background:#FFC107;color:#fff;font-weight:500;border-radius:0px;font-size:14px;">Exclusive</span></p><% end %>
+                  <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#424242 !important;"><%= job.employer.name %></span> &middot; <%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></p>
+                  <h4 class="bold no-margin-bottom"><%= job.title %></h4>
+                  <p><%= job.summary %></p>
+                  <%= link_to "Vise annonse", job, class:"btn btn-default", style:"background:#FAFAFA;border-color:#EEEEEE;color:#424242;border-radius:0px;" %> <% if job.exclusive %><% if job.employer.profile %> <%= link_to "Vise bedriftsprofil", job.employer, class:"btn btn-default", style:"background:#FFC107;border-color:#FFA000;color:#fff;border-radius:0px;" %><% end %> <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="background:#009688;border-radius:0px;border-color:#00796B;color:#fff;font-weight:500;">
+                    Søk nå (innan <%= job.date %>)
+                  </button><% end %>
+                </div>
               </div>
-              <div class="col-md-9 col-xs-12">
-                <% if job.exclusive %><p><span class="label label-default" style="background:#FFC107;color:#fff;font-weight:500;border-radius:0px;font-size:14px;">Exclusive</span></p><% end %>
-                <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#424242 !important;"><%= job.employer.name %></span> &middot; <%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></p>
-                <h4 class="bold no-margin-bottom"><%= job.title %></h4>
-                <p><%= job.summary %></p>
-                <%= link_to "Vise annonse", job, class:"btn btn-default", style:"background:#FAFAFA;border-color:#EEEEEE;color:#424242;border-radius:0px;" %> <% if job.exclusive %><% if job.employer.profile %> <%= link_to "Vise bedriftsprofil", job.employer, class:"btn btn-default", style:"background:#FFC107;border-color:#FFA000;color:#fff;border-radius:0px;" %><% end %> <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="background:#009688;border-radius:0px;border-color:#00796B;color:#fff;font-weight:500;">
-                  Søk nå (innan <%= job.date %>)
-                </button><% end %>
-              </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
         <div class="row">
