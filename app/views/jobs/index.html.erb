@@ -32,7 +32,7 @@
                 <% if job.exclusive %><p><span class="label label-default" style="background:#FFC107;color:#fff;font-weight:500;border-radius:0px;font-size:14px;">Exclusive</span></p><% end %>
                 <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#424242 !important;"><%= job.employer.name %></span> &middot; <%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></p>
                 <h4 class="bold no-margin-bottom"><%= job.title %></h4>
-                <p><%= truncate(job.content, length: 150, :escape => false) %></p>
+                <p><%= job.summary %></p>
                 <%= link_to "Vise annonse", job, class:"btn btn-default", style:"background:#FAFAFA;border-color:#EEEEEE;color:#424242;border-radius:0px;" %> <% if job.exclusive %><% if job.employer.profile %> <%= link_to "Vise bedriftsprofil", job.employer, class:"btn btn-default", style:"background:#FFC107;border-color:#FFA000;color:#fff;border-radius:0px;" %><% end %> <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="background:#009688;border-radius:0px;border-color:#00796B;color:#fff;font-weight:500;">
                   Søk nå (innan <%= job.date %>)
                 </button><% end %>
