@@ -104,6 +104,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2">
+        <% @banners.each do |banner| %>
+          <%= image_tag banner.left, class:"thumbnail", style:"margin-top:12px !important;" %>
+        <% end %>
       </div>
       <div class="col-md-8">
         <div class="row">
@@ -179,6 +182,9 @@
         </div>
       </div>
       <div class="col-md-2">
+        <% @banners.each do |banner| %>
+          <%= image_tag banner.right, class:"thumbnail", style:"margin-top:12px !important;" %>
+        <% end %>
       </div>
     </div>
   </div>
