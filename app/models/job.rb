@@ -1,7 +1,7 @@
 class Job < ApplicationRecord
-  belongs_to :employer, :dependent => :delete
-  belongs_to :category, :dependent => :delete
-  belongs_to :type, :dependent => :delete
+  belongs_to :employer
+  belongs_to :category
+  belongs_to :type
 
   validates :title, presence: true
   validates :employer, presence: true
