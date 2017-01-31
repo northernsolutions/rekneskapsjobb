@@ -1,8 +1,16 @@
+<% if @job.exclusive %>
 <style>
-  body {
-    /* border-top:5px solid #FFC107 !important; */
+  .navbar {
+    display:none;
+  }
+
+  .navbar-top {
+    display:none;
   }
 </style>
+<% end %>
+
+<%= render 'shared/header' %>
 
 <page id="jobs_show">
   <div class="test" style="background:#fff;min-height:100vh;">
@@ -29,7 +37,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-3 col-xs-6">
+              <div class="col-md-2 col-xs-6">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="ad-logo">
@@ -37,7 +45,10 @@
                     </div>
                     <% if @job.employer.profile %>
                       <div class="ad-employer-profile">
-                        <%= link_to "Vise Bedriftsprofil", employer_path, class:"btn btn-lg btn-default", style:"background:#424242;color:#fff;border-color:#424242;border-radius:0px;width:100%;margin-bottom:24px;" %>
+                        <%= link_to "Vise Bedriftsprofil", employer_path, class:"btn btn-lg btn-default", style:"background:#424242;color:#fff;border-color:#424242;border-radius:0px;width:100%;margin-bottom:12px;" %>
+                      </div>
+                      <div class="apply">
+                        <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;margin-bottom:24px;width:100%;">Søk nå</button>
                       </div>
                     <% end %>
                     <div class="ad-info" style="background:#fafafa;padding:24px;margin-bottom:24px;">
@@ -57,10 +68,10 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-9 col-xs-12">
+              <div class="col-md-10 col-xs-12">
                 <div class="row">
                   <div class="col-md-12">
-                    <div class="ad-header" style="margin-bottom:0px;">
+                    <div class="ad-header" style="margin-bottom:24px;">
                       <h4 class="bold" style="color:#656565;"><%= @job.employer.name %> søker</h4>
                       <h2 class="bold" style="margin-bottom:0px !important;"><%= @job.title %></h2>
                     </div>
@@ -78,7 +89,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="ad-apply">
-                      <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;margin-bottom:24px;">Søk nå</button>
+                      <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;margin-bottom:24px;width:100%;">Søk nå</button>
                     </div>
                   </div>
                 </div>
@@ -89,6 +100,94 @@
       </div>
     </div>
   <% else %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="ad-top" style="padding-top:12px;padding-bottom:48px;margin-bottom:24px;">
+              <div class="pull-left">
+                <%= link_to "Gå tilbake", root_path, class:"btn btn-lg btn-default", style:"color:#424242;border-color:#fafafa;background:#fafafa;border-radius:0px;" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="ad">
+              <div class="row">
+                <div class="col-md-3 col-xs-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="ad-logo">
+                        <%= image_tag @job.employer.logo, class:"thumbnail", style:"margin-bottom:24px;" %>
+                      </div>
+                      <% if @job.employer.profile %>
+                        <div class="ad-employer-profile">
+                          <%= link_to "Vise Bedriftsprofil", employer_path, class:"btn btn-lg btn-default", style:"background:#424242;color:#fff;border-color:#424242;border-radius:0px;width:100%;margin-bottom:12px;" %>
+                        </div>
+                      <% end %>
+                      <div class="ad-info" style="background:#fafafa;padding:24px;margin-bottom:24px;">
+                        <p class="bold">Arbeidssted</p>
+                        <p><%= @job.location %></p>
+                        <p class="bold">Type</p>
+                        <p><%= @job.type.name %></p>
+                        <p class="bold">Kategori</p>
+                        <p><%= @job.category.name %></p>
+                        <p class="bold">Søknadsfrist</p>
+                        <p><%= @job.date %></p>
+                        <p class="bold">Registrert</p>
+                        <p><%= @job.published_at %></p>
+                        <p class="bold">Antal stillinger</p>
+                        <p style="margin-bottom:0px !important;"><%= @job.number %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-9 col-xs-12">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="ad-header" style="margin-bottom:24px;">
+                        <h4 class="bold" style="color:#656565;"><%= @job.employer.name %> søker</h4>
+                        <h2 class="bold" style="margin-bottom:0px !important;"><%= @job.title %></h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="ad-content">
+                        <div class="ad-content" style="margin-bottom:24px;">
+                          <%= @job.content.html_safe %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="ad-apply">
+                        <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;margin-bottom:24px;width:100%;">Søk nå</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
   <% end %>
   </div>
 </page>
