@@ -1,98 +1,101 @@
+<style>
+  body {
+    /* border-top:5px solid #FFC107 !important; */
+  }
+</style>
+
 <page id="jobs_show">
-  <div class="container" style="margin-top:30px;">
-    <div class="row">
-      <div class="col-md-12">
-        <ol class="breadcrumb">
-          <li><%= link_to "Hjem", root_path %></li>
-          <li><%= link_to "Ledige Stillinger", jobs_path %></li>
-          <li class="active"><%= @job.title %></li>
-        </ol>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <% if @job.exclusive %>
-        <% else %>
-          <% @banners.each do |banner| %>
-            <%= image_tag banner.left, class:"thumbnail" %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="col-md-8">
-        <% if @job.exclusive %>
-          <div class="row">
-            <div class="col-md-12">
-              <%= image_tag @job.employer.header, class:"thumbnail" %>
+  <div class="test" style="background:#fff;min-height:100vh;">
+  <% if @job.exclusive %>
+    <div class="container" style="background:#fff;min-height:100vh;box-shadow:0 0 5px rgba(0,0,0,0.1) !important;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="ad-top" style="padding-top:12px;padding-bottom:48px;">
+            <div class="pull-left">
+              <%= link_to "Gå tilbake", root_path, class:"btn btn-lg btn-default", style:"color:#424242;border-color:#fafafa;background:#fafafa;border-radius:0px;" %>
+            </div>
+            <div class="pull-right">
+              <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;">Søk nå</button>
             </div>
           </div>
-        <% end %>
-        <div class="row" style="margin-bottom:30px;">
-          <div class="col-md-3 col-xs-6">
-            <%= image_tag @job.employer.logo, class:"thumbnail" %>
-          </div>
-          <div class="col-md-9 col-xs-12">
-            <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#424242 !important;"><%= @job.employer.name %></span> &middot; <%= @job.location %> &middot; <%= @job.category.name %> &middot; <%= @job.type.name %></p>
-            <h4 class="bold"><%= @job.title %></h4>
-            <% if @job.employer.profile %><%= link_to "Vise bedriftsprofil", @job.employer, class:"btn btn-default", style:"background:#FFC107;border-color:#FFA000;color:#fff;border-radius:0px;" %><% end %>
-          </div>
         </div>
-        <div class="row" style="margin-bottom:30px;">
-          <div class="col-md-12">
-            <span class="justify"><%= @job.content.html_safe %></span>
-          </div>
-        </div>
-        <div class="row" style="margin-bottom:30px;">
-          <div class="col-md-12">
-            <div class="job-info" style="background:#fafafa;padding:24px;">
-              <div class="row">
-                <div class="col-md-3">
-                  <p class="bold">Arbeidssted</p>
-                  <p><%= @job.location %></p>
-                  <p class="bold">Søknadsfrist</p>
-                  <p><%= @job.date %></p>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="ad">
+            <div class="row">
+              <div class="col-md-12">
+                <%= image_tag @job.employer.header, class:"thumbnail", style:"margin-bottom:24px !important;" %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-xs-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="ad-logo">
+                      <%= image_tag @job.employer.logo, class:"thumbnail", style:"margin-bottom:24px;" %>
+                    </div>
+                    <% if @job.employer.profile %>
+                      <div class="ad-employer-profile">
+                        <%= link_to "Vise Bedriftsprofil", employer_path, class:"btn btn-lg btn-default", style:"background:#424242;color:#fff;border-color:#424242;border-radius:0px;width:100%;margin-bottom:24px;" %>
+                      </div>
+                    <% end %>
+                    <div class="ad-info" style="background:#fafafa;padding:24px;margin-bottom:24px;">
+                      <p class="bold">Arbeidssted</p>
+                      <p><%= @job.location %></p>
+                      <p class="bold">Type</p>
+                      <p><%= @job.type.name %></p>
+                      <p class="bold">Kategori</p>
+                      <p><%= @job.category.name %></p>
+                      <p class="bold">Søknadsfrist</p>
+                      <p><%= @job.date %></p>
+                      <p class="bold">Registrert</p>
+                      <p><%= @job.published_at %></p>
+                      <p class="bold">Antal stillinger</p>
+                      <p style="margin-bottom:0px !important;"><%= @job.number %></p>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-3">
-                  <p class="bold">Type</p>
-                  <p><%= @job.type.name %></p>
-                  <p class="bold">Registrert</p>
-                  <p><%= @job.published_at %></p>
+              </div>
+              <div class="col-md-9 col-xs-12">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="ad-header" style="margin-bottom:24px;">
+                      <h4 class="bold" style="color:#656565;"><%= @job.employer.name %> søker</h4>
+                      <h2 class="bold" style="margin-bottom:0px !important;"><%= @job.title %></h2>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-3">
-                  <p class="bold">Kategori</p>
-                  <p><%= @job.category.name %></p>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="ad-content">
+                      <div class="ad-content" style="margin-bottom:24px;">
+                        <%= @job.content.html_safe %>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-3">
-                  <p class="bold">Antal stillinger</p>
-                  <p><%= @job.number %></p>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="ad-apply">
+                      <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;">Søk nå</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="width:100%;background:#FFC107;border-radius:0px;border-color:#FFA000;color:#fff;font-weight:500;">
-              Søk nå (innan <%= @job.date %>)
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <% if @job.exclusive %>
-        <% else %>
-          <% @banners.each do |banner| %>
-            <%= image_tag banner.right, class:"thumbnail" %>
-          <% end %>
-        <% end %>
       </div>
     </div>
+  <% else %>
+  <% end %>
   </div>
 </page>
 
 <!-- Modal -->
-<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
