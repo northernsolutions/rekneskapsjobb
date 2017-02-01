@@ -23,7 +23,7 @@
               <%= link_to "Gå tilbake", root_path, class:"btn btn-lg btn-default", style:"color:#424242;border-color:#fafafa;background:#fafafa;border-radius:0px;" %>
             </div>
             <div class="pull-right">
-              <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;">Søk nå</button>
+              <!-- <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;">Søk nå</button> -->
             </div>
           </div>
         </div>
@@ -64,6 +64,10 @@
                       <p><%= @job.published_at %></p>
                       <p class="bold">Antal stillinger</p>
                       <p style="margin-bottom:0px !important;"><%= @job.number %></p>
+                    </div>
+                    <div class="share" style="margin-bottom:24px;">
+                      <p class="bold">Dela gärna via:</p>
+                      <i class="fa fa-facebook-square" aria-hidden="true" style="font-size:40px;color:#3b5998;"></i> &nbsp; <i class="fa fa-twitter-square" aria-hidden="true" style="font-size:40px;color:#15a7ff;"></i> &nbsp; <i class="fa fa-linkedin-square" aria-hidden="true" style="font-size:40px;color:#0077b5;"></i> &nbsp; <i class="fa fa-google-plus-square" aria-hidden="true" style="font-size:40px;color:#d34836;"></i> &nbsp; <i class="fa fa-envelope" aria-hidden="true" style="font-size:40px;color:#4CAF50;"></i>
                     </div>
                   </div>
                 </div>

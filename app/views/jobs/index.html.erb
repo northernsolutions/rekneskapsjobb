@@ -1,3 +1,19 @@
+<style>
+  .page {
+    border:none !important;
+  }
+
+  .btn-search {
+    width: 100%;
+    border-radius: 3px;
+    font-size: 14px !important;
+    font-weight: 500;
+    background: #2196F3;
+    border-color: #2196F3;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+</style>
 <%= render 'shared/header' %>
 <page id="jobs_index">
   <div class="container" style="margin-top:30px;">
@@ -10,7 +26,12 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-12">
-            <div class="jobs-index-header">
+            <button class="btn btn-lg btn-search" style="width:100%;border-radius:3px;"><i class="fa fa-search" aria-hidden="true"></i> &nbsp; Sök bland ledige stillinger</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="jobs-index-header" style="border-bottom:0px !important;margin-bottom:0px !important;">
               <h4 class="bold no-margin-bottom" style="margin-bottom:0px !important;">Ledige Stillinger</h4>
             </div>
           </div>
@@ -19,17 +40,24 @@
           <% if job.published_at? %>
             <%= link_to job do %>
               <div class="row" style="margin-bottom:30px;">
-                <div class="col-md-3 col-xs-6">
-                  <%= image_tag job.employer.logo, class:"thumbnail" %>
-                </div>
-                <div class="col-md-9 col-xs-12">
-                  <% if job.exclusive %><p><span class="label label-default" style="background:#FFC107;color:#fff;font-weight:500;border-radius:0px;font-size:14px;">Exclusive</span></p><% end %>
-                  <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#424242 !important;"><%= job.employer.name %></span> &middot; <%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></p>
-                  <h4 class="bold no-margin-bottom"><%= job.title %></h4>
-                  <p><%= job.summary %></p>
-                  <%= link_to "Vise annonse", job, class:"btn btn-default", style:"background:#FAFAFA;border-color:#EEEEEE;color:#424242;border-radius:0px;" %> <% if job.exclusive %><% if job.employer.profile %> <%= link_to "Vise bedriftsprofil", job.employer, class:"btn btn-default", style:"background:#FFC107;border-color:#FFA000;color:#fff;border-radius:0px;" %><% end %> <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="background:#009688;border-radius:0px;border-color:#00796B;color:#fff;font-weight:500;">
-                    Søk nå (innan <%= job.date %>)
-                  </button><% end %>
+                <div class="col-md-12">
+                  <div class="job-single" style="padding:24px;border:1px solid #fafafa;">
+                    <div class="row">
+                      <div class="col-md-3 col-xs-6">
+                        <%= image_tag job.employer.logo, class:"thumbnail" %>
+                      </div>
+                      <div class="col-md-9 col-xs-12">
+                        <% if job.exclusive %><p><span class="label label-default" style="background:#FFC107;color:#fff;font-weight:500;border-radius:0px;font-size:14px;">Exclusive</span></p><% end %>
+                        <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#424242 !important;"><%= job.employer.name %></span> &middot; <%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></p>
+                        <h4 class="bold no-margin-bottom"><%= job.title %></h4>
+                        <p><%= job.summary %></p>
+                        <p class="bold text-muted">Dela på: &nbsp; <i class="fa fa-facebook-square" aria-hidden="true" style="font-size:14px;color:#3b5998;"></i> &nbsp; <i class="fa fa-twitter-square" aria-hidden="true" style="font-size:14px;color:#15a7ff;"></i> &nbsp; <i class="fa fa-linkedin-square" aria-hidden="true" style="font-size:14px;color:#0077b5;"></i> &nbsp; <i class="fa fa-google-plus-square" aria-hidden="true" style="font-size:14px;color:#d34836;"></i> &nbsp; <i class="fa fa-envelope" aria-hidden="true" style="font-size:14px;color:#4CAF50;"></i></p>
+                        <% if job.exclusive %><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="background:#009688;border-radius:3px;border-color:#009688;color:#fff;font-weight:500;">
+                          Søk nå
+                        </button> <% if job.employer.profile %> <%= link_to "Vise bedriftsprofil", job.employer, class:"btn btn-default", style:"background:#FFC107;border-color:#FFC107;color:#fff;border-radius:3px;" %><% end %><% end %> <%= link_to "Les mer", job, class:"btn btn-default", style:"background:#2196F3;border-color:#2196F3;color:#fff !important;border-radius:3px;" %>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             <% end %>
