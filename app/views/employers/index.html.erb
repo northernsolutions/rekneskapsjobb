@@ -14,8 +14,8 @@
             <% if employer.profile %>
                 <div class="col-md-4">
                   <div class="employer-card" style="margin-bottom:36px;">
-                    <%= image_tag employer.header, class:"thumnail", style:"width:100%;border-top-left-radius:0px;border-top-right-radius:0px;margin-bottom:15px;" %>
-                    <%= image_tag employer.logo, class:"thumnail", style:"border-top-left-radius:3px;border-top-right-radius:3px;margin-bottom:15px;" %>
+                    <%= image_tag employer.header, class:"thumbnail", style:"width:100%;border-top-left-radius:0px;border-top-right-radius:0px;margin-bottom:15px;" %>
+                    <%= image_tag employer.logo, class:"thumbnail", style:"border-top-left-radius:3px;border-top-right-radius:3px;margin-bottom:15px;max-width:50%;" %>
                     <h4 class="bold" style="margin-bottom:0px;"><%= employer.name %></h4>
                     <p class="text-small text-muted bold uppercase"><%= employer.jobs.count %> ledige stillinger</p>
                     <p class="text-muted justify" style="margin-bottom: 24px !important;margin-bottom:0px;"><%= employer.summary %></p>
