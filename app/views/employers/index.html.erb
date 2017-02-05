@@ -13,7 +13,7 @@
           <% if employer.published_at? %>
             <% if employer.profile %>
                 <div class="col-md-4">
-                  <div class="employer-card" style="margin-bottom:36px;">
+                  <div class="employer-card" style="margin-bottom:36px;border:2px solid #eee;border-radius:3px;padding:24px;">
                     <%= image_tag employer.header, class:"thumbnail", style:"width:100%;border-top-left-radius:0px;border-top-right-radius:0px;margin-bottom:15px;" %>
                     <%= image_tag employer.logo, class:"thumbnail", style:"border-top-left-radius:3px;border-top-right-radius:3px;margin-bottom:15px;max-width:50%;" %>
                     <h4 class="bold" style="margin-bottom:0px;"><%= employer.name %></h4>
