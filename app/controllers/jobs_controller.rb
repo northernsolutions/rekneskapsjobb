@@ -8,4 +8,9 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @banners = Banner.all
   end
+
+  def search
+    @banners = Banner.all
+    @jobs = Job.search(params)
+  end
 end

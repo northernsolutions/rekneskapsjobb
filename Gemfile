@@ -27,6 +27,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
 gem 'geocoder'
+gem 'mail_form', '~> 1.6'
 
 group :development, :test do
   gem 'byebug', platform: :mri
