@@ -1,5 +1,5 @@
-class Apply < MailForm::Base
-  belongs_to :job
+class Apply < MailForm::Base 
+
   attribute :name,      :validate => true
   attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :message,   :validate => true
