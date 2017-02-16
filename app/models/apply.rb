@@ -1,4 +1,5 @@
 class Apply < MailForm::Base
+  belongs_to :job
   attribute :name,      :validate => true
   attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :message,   :validate => true
@@ -6,7 +7,7 @@ class Apply < MailForm::Base
 
   def headers
     {
-        :subject => "Contact Form",
+        :subject => "<%= @job.title %>",
         :to => "jacobahed@gmail.com",
         :from => %("#{name}" <#{email}>)
       }
