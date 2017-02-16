@@ -13,4 +13,8 @@ class JobsController < ApplicationController
     @banners = Banner.all
     @jobs = Job.search(params)
   end
+
+  def apply
+    @apply = Apply.new
+  end
 end

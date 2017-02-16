@@ -2,6 +2,7 @@ class Job < ApplicationRecord
   belongs_to :employer
   belongs_to :category
   belongs_to :type
+  has_many :contacts
 
   validates :title, presence: true
   validates :employer, presence: true
