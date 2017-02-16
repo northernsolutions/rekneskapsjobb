@@ -7,7 +7,7 @@ class Apply < MailForm::Base
   def headers
     {
         :subject => "Contact Form",
-        :to => "#{job.employer.website}",
+        :to => "jacobahed@gmail.com",
         :from => %("#{name}" <#{email}>)
       }
   end
