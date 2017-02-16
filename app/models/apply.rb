@@ -1,13 +1,14 @@
-class Apply < MailForm::Base 
+class Apply < MailForm::Base
 
   attribute :name,      :validate => true
   attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :message,   :validate => true
   attribute :nickname,  :captcha  => true
 
+
   def headers
     {
-        :subject => "<%= @job.title %>",
+        :subject => "Test",
         :to => "jacobahed@gmail.com",
         :from => %("#{name}" <#{email}>)
       }
