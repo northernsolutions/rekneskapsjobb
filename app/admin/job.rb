@@ -1,5 +1,5 @@
 ActiveAdmin.register Job do
-  permit_params :exclusive, :title, :content, :number, :location, :date, :apply, :summary, :employer_id, :category_id, :published_at, :type_id, :longitude, :latitude
+  permit_params :exclusive, :title, :content, :number, :location, :date, :apply, :summary, :employer_id, :category_id, :published_at, :type_id, :longitude, :latitude, :apply_via_app
 
   scope :all
   scope :published
@@ -41,6 +41,7 @@ ActiveAdmin.register Job do
       row :apply
       row :longitude
       row :latitude
+      row :apply_via_app
       row :published_at
       row :employer
       row :category
@@ -57,6 +58,7 @@ ActiveAdmin.register Job do
       f.input :location
       f.input :date
       f.input :number
+      f.input :apply_via_app
       f.input :apply, as: :html_editor
       f.input :employer
       f.input :category

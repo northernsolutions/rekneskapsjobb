@@ -1,20 +1,166 @@
+<style>
+  .search {
+    padding: 24px 0px 12px 0px !important;
+  }
+
+  .btn-search {
+    width:100% !important;
+    font-weight:500 !important;
+    color:#fff !important;
+    background:#2196F3 !important;
+    border-color:#2196F3 !important;
+    font-size:14px !important;
+    margin-bottom: 12px !important;
+    border-radius: 3px !important;
+  }
+
+  .btn-search-action {
+    width:100% !important;
+    font-weight: 500 !important;
+    color:#fff !important;
+    background:#FFC107 !important;
+    border-color:#FFC107 !important;
+    font-size:14px !important;
+    margin-bottom:12px !important;
+    border-radius: 3px !important;
+  }
+
+  .btn-search-action:hover {
+    color:#fff !important;
+    background:#FFC107 !important;
+    border-color:#FFC107 !important;
+  }
+
+  .btn-search:hover {
+    color:#fff !important;
+    background:#2196F3 !important;
+    border-color:#2196F3 !important;
+  }
+
+  .input-search {
+    font-size:14px !important;
+    box-shadow:none !important;
+    border:1px solid #f5f5f5 !important;
+    padding: 10px 16px !important;
+    font-weight: 500 !important;
+    margin-bottom: 12px !important;
+    border-radius: 3px !important;
+  }
+
+  h4 {
+    margin: 0 0 10px !important;
+    font-weight: 500 !important;
+  }
+
+  .thumbnail {
+    margin-bottom: 0px !important;
+    width:100% !important;
+    border:none !important;
+    padding:12px !important;
+  }
+
+  .label-exclusive {
+    background:#FFC107 !important;
+    border:1px solid #FFC107 !important;
+    color:#424242 !important;
+    font-size:14px !important;
+    border-radius: 3px !important;
+    font-weight: 500 !important;
+  }
+
+  .bold {
+    font-weight: 500 !important;
+  }
+
+  .uppercase {
+    text-transform: uppercase !important;
+  }
+
+  .btn-job-apply {
+    font-size:14px !important;
+    background:#009688 !important;
+    color:#fff !important;
+    border-color:#009688 !important;
+    font-weight: 500 !important;
+    border-radius: 3px !important;
+  }
+
+  .btn-job-apply:hover {
+    background:#009688 !important;
+    color:#fff !important;
+    border-color:#009688 !important;
+  }
+
+  .btn-job-profile {
+    font-weight: 500 !important;
+    color:#424242 !important;
+    background:#FFC107 !important;
+    border-color:#FFC107 !important;
+    font-size:14px !important;
+    border-radius: 3px !important;
+  }
+
+  .btn-job-profile:hover {
+    font-weight: 500 !important;
+    color:#424242 !important;
+    background:#FFC107 !important;
+    border-color:#FFC107 !important;
+  }
+
+  .btn-job-show {
+    font-weight:500 !important;
+    color:#fff !important;
+    background:#2196F3 !important;
+    border-color:#2196F3 !important;
+    font-size:14px !important;
+    border-radius: 3px !important;
+  }
+
+  .btn-job-show:hover {
+    color:#fff !important;
+    background:#2196F3 !important;
+    border-color:#2196F3 !important;
+  }
+
+  .banner {
+    padding:12px 0px !important;
+  }
+
+</style>
+
 <page id="employers_show">
   <div class="container" style="margin-top:30px;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="ad-top" style="padding-top:0spx;padding-bottom:48px;">
+              <div class="pull-left">
+                <%= link_to "Gå tilbake", root_path, class:"btn btn-lg btn-default", style:"color:#424242;border-color:#fafafa;background:#fafafa;border-radius:3px;" %>
+              </div>
+              <div class="pull-right">
+                <!-- <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:3px;">Søk nå</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-0">
       </div>
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-12">
-            <%= image_tag @employer.header, class:"thumbnail" %>
+            <%= image_tag @employer.header, class:"thumbnail", style:"padding-left:0px !important;padding-right:0px !important;" %>
           </div>
         </div>
         <div class="row" style="margin-bottom:30px;">
           <div class="col-md-2 col-xs-6">
-            <%= image_tag @employer.logo, class:"thumbnail", style:"margin-bottom:0px !important;" %>
+            <%= image_tag @employer.logo, class:"thumbnail", style:"margin-bottom:0px !important;padding-left:0px !important;" %>
           </div>
           <div class="col-md-10 col-xs-12">
-            <h4 class="bold"><%= @employer.name %></h4>
+            <h4 class="bold" style="padding-top:12px !important;"><%= @employer.name %></h4>
             <p><%= @employer.summary %></p>
           </div>
         </div>
@@ -29,18 +175,35 @@
               <div role="tabpanel" class="tab-pane active" id="home" style="padding:30px 0px;"><%= @employer.about.html_safe %></div>
               <div role="tabpanel" class="tab-pane" id="profile" style="padding:30px 0px;"><%= @employer.vision.html_safe %></div>
               <div role="tabpanel" class="tab-pane" id="messages" style="padding:30px 0px;">
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                    <h4 style="margin-bottom:0px !important;">Ledige Stillinger</h4>
+                  </div>
+                </div>
                 <% @employer.jobs.each do |job| %>
-                  <%= link_to job do %>
-                    <div class="row" style="margin-bottom:30px;">
-                      <div class="col-md-2 col-xs-6">
-                        <%= image_tag job.employer.logo, class:"thumbnail" %>
-                      </div>
-                      <div class="col-md-10 col-xs-12">
-                        <% if job.exclusive %><p><span class="label label-default" style="background:#FFC107;color:#fff;font-weight:500;border-radius:0px;font-size:14px;">Exclusive</span></p><% end %>
-                        <p class="bold uppercase text-muted no-margin-bottom"><span style="color:#424242 !important;"><%= job.employer.name %></span> &middot; <%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></p>
-                        <h4 class="bold no-margin-bottom"><%= job.title %></h4>
-                        <p><%= truncate(job.content, length: 150, :escape => false) %></p>
-                        <%= link_to "Vise annonse", job, class:"btn btn-default", style:"background:#FAFAFA;border-color:#EEEEEE;color:#424242;border-radius:0px;" %>
+                  <% if job.published_at? %>
+                    <div class="row">
+                      <div class="col-md-8 col-md-offset-2">
+                        <div class="job" style="padding:24px;border:2px solid #f5f5f5;margin-top:24px;border-radius: 3px;">
+                          <div class="row">
+                            <div class="col-md-3">
+                              <%= image_tag job.employer.logo, class:"thumbnail" %>
+                            </div>
+                            <div class="col-md-9">
+                              <% if job.exclusive %>
+                                <p><span class="label label-default label-exclusive">Exclusive</span></p>
+                              <% end %>
+                              <p class="bold uppercase"><%= job.employer.name %> &middot; <span style="color:#656565 !important;"><%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></span></p>
+                              <h4><%= job.title %></h4>
+                              <% if job.exclusive %>
+                                <p><div class="sharethis-inline-share-buttons"></div></p>
+                                <button class="btn btn-primary btn-lg btn-job-apply" data-toggle="modal" data-target="#myModal">Søk nå</button> &nbsp; <%= link_to(job) do %><button class="btn btn-primary btn-lg btn-job-show">Les mer</button><% end %>
+                              <% else %>
+                                <%= link_to(job) do %><button class="btn btn-primary btn-lg btn-job-show">Les mer</button><% end %>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   <% end %>

@@ -138,7 +138,9 @@
       <div class="col-md-2">
         <% @banners.each do |banner| %>
           <div class="banner">
-            <%= image_tag banner.left, class:"thumbnail" %>
+            <%= link_to("http://#{banner.link}") do %>
+              <%= image_tag banner.left, class:"thumbnail" %>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -198,8 +200,8 @@
                       <p class="bold uppercase"><%= job.employer.name %> &middot; <span style="color:#656565 !important;"><%= job.location %> &middot; <%= job.category.name %> &middot; <%= job.type.name %></span></p>
                       <h4><%= job.title %></h4>
                       <% if job.exclusive %>
-                        <p class="bold" style="color:#656565 !important;">Dela på: &nbsp; <i class="fa fa-facebook-square" aria-hidden="true" style="font-size:14px;color:#3b5998;"></i> &nbsp; <i class="fa fa-twitter-square" aria-hidden="true" style="font-size:14px;color:#15a7ff;"></i> &nbsp; <i class="fa fa-linkedin-square" aria-hidden="true" style="font-size:14px;color:#0077b5;"></i> &nbsp; <i class="fa fa-google-plus-square" aria-hidden="true" style="font-size:14px;color:#d34836;"></i> &nbsp; <i class="fa fa-envelope" aria-hidden="true" style="font-size:14px;color:#4CAF50;"></i></p>
-                        <%= link_to(job) do %><button class="btn btn-primary btn-lg btn-job-apply">Søk nå</button><% end %> &nbsp; <%= link_to(job.employer) do %><button class="btn btn-primary btn-lg btn-job-profile">Visa Bedriftsprofil</button><% end %> &nbsp; <%= link_to(job) do %><button class="btn btn-primary btn-lg btn-job-show">Les mer</button><% end %>
+                        <p><div class="sharethis-inline-share-buttons"></div></p>
+                        <button class="btn btn-primary btn-lg btn-job-apply" data-toggle="modal" data-target="#myModal">Søk nå</button> &nbsp; <%= link_to(job.employer) do %><button class="btn btn-primary btn-lg btn-job-profile">Visa Bedriftsprofil</button><% end %> &nbsp; <%= link_to(job) do %><button class="btn btn-primary btn-lg btn-job-show">Les mer</button><% end %>
                       <% else %>
                         <%= link_to(job) do %><button class="btn btn-primary btn-lg btn-job-show">Les mer</button><% end %>
                       <% end %>
@@ -214,10 +216,27 @@
       <div class="col-md-2">
         <% @banners.each do |banner| %>
           <div class="banner">
-            <%= image_tag banner.right, class:"thumbnail" %>
+            <%= link_to("http://#{banner.link}") do %>
+              <%= image_tag banner.right, class:"thumbnail" %>
+            <% end %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </page>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Søk nå till <% @jobs.each do |job| %><%= job.title %><% end %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'applies/new' %>
+      </div>
+    </div>
+  </div>
+</div>

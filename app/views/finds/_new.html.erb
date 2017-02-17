@@ -7,8 +7,8 @@
   }
 </style>
 
-<div class="apply-form">
-    <%= form_for Apply.new do |f| %>
+<div class="find-form">
+    <%= form_for Find.new do |f| %>
       <div class="form-group">
         <label>Namn</label>
         <%= f.text_field :name, required: true, class:"form-control input-lg" %>
@@ -30,7 +30,7 @@
         <%= f.file_field :letter %>
       </div>
       <div class="form-group">
-        <label>Meddelande till arbetsgivaren</label>
+        <label>Berätta om vad du söker</label>
         <%= f.text_area :message, as: :text, class:"form-control input-lg" %>
       </div>
 
@@ -39,7 +39,7 @@
             <%= f.text_field :nickname, hint: 'leave this field blank' %>
         </div>
       <div class="form-group">
-        <%= f.submit 'Skicka', class: "btn btn-lg", style:"width:100%;background:#FFC107;border-color:#FFC107;font-size:14px;font-weight:500;border-radius:3px;" %>
+        <%= f.submit 'Registrera', class: "btn btn-lg", style:"width:100%;background:#FFC107;border-color:#FFC107;font-size:14px;font-weight:500;border-radius:3px;" %>
       </div>
     <% end %>
 </div>

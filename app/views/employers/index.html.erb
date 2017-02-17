@@ -13,13 +13,12 @@
           <% if employer.published_at? %>
             <% if employer.profile %>
                 <div class="col-md-4">
-                  <div class="employer-card" style="margin-bottom:36px;border:2px solid #eee;border-radius:3px;padding:24px;">
+                  <div class="employer-card" style="margin-bottom:36px;border:2px solid #eee;border-radius:3px;padding:24px;height:292px;">
                     <%= image_tag employer.header, class:"thumbnail", style:"width:100%;border-top-left-radius:0px;border-top-right-radius:0px;margin-bottom:15px;height:75px !important;" %>
                     <%= image_tag employer.logo, class:"thumbnail", style:"border-top-left-radius:3px;border-top-right-radius:3px;margin-bottom:15px;max-width:50% !important;" %>
                     <h4 class="bold" style="margin-bottom:0px;"><%= employer.name %></h4>
                     <p class="text-small text-muted bold uppercase"><%= employer.jobs.count %> ledige stillinger</p>
-                    <p class="text-muted justify" style="margin-bottom: 24px !important;margin-bottom:0px;"><%= employer.summary %></p>
-                    <%= link_to "Visa Bedriftsprofil", employer, class:"btn btn-view-employer", style:"width:100%;background:#FFC107;color:#fff;font-weight:500;border-color:#FFC107;border-radius:0px;" %>
+                    <%= link_to "Visa Bedriftsprofil", employer, class:"btn btn-lg btn-view-employer", style:"width:100%;background:#FFC107;color:#424242;font-weight:500;border-color:#FFC107;border-radius:3px;" %>
                   </div>
                 </div>
             <% end %>

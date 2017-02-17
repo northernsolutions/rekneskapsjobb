@@ -20,10 +20,10 @@
         <div class="col-md-12">
           <div class="ad-top" style="padding-top:12px;padding-bottom:48px;">
             <div class="pull-left">
-              <%= link_to "Gå tilbake", root_path, class:"btn btn-lg btn-default", style:"color:#424242;border-color:#fafafa;background:#fafafa;border-radius:0px;" %>
+              <%= link_to "Gå tilbake", root_path, class:"btn btn-lg btn-default", style:"color:#424242;border-color:#fafafa;background:#fafafa;border-radius:3px;" %>
             </div>
             <div class="pull-right">
-              <!-- <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;">Søk nå</button> -->
+              <!-- <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:3px;">Søk nå</button> -->
             </div>
           </div>
         </div>
@@ -45,10 +45,10 @@
                     </div>
                     <% if @job.employer.profile %>
                       <div class="ad-employer-profile">
-                        <%= link_to "Vise Bedriftsprofil", employer_path, class:"btn btn-lg btn-default", style:"background:#424242;color:#fff;border-color:#424242;border-radius:0px;width:100%;margin-bottom:12px;" %>
+                        <%= link_to "Vise Bedriftsprofil", employer_path, class:"btn btn-lg btn-default", style:"background:#424242;color:#fff;border-color:#424242;border-radius:3px;width:100%;margin-bottom:12px;" %>
                       </div>
                       <div class="apply">
-                        <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#424242 !important;border-color:#FFC107;border-radius:0px;margin-bottom:24px;width:100%;">Søk nå</button>
+                        <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#424242 !important;border-color:#FFC107;border-radius:3px;margin-bottom:24px;width:100%;">Søk nå</button>
                       </div>
                     <% end %>
                     <div class="ad-info" style="background:#fafafa;padding:12px;margin-bottom:24px;">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="share" style="margin-bottom:24px;">
                       <p class="bold">Dela gärna via:</p>
-                      <i class="fa fa-facebook-square" aria-hidden="true" style="font-size:40px;color:#3b5998;"></i> &nbsp; <i class="fa fa-twitter-square" aria-hidden="true" style="font-size:40px;color:#15a7ff;"></i> &nbsp; <i class="fa fa-linkedin-square" aria-hidden="true" style="font-size:40px;color:#0077b5;"></i> &nbsp; <i class="fa fa-google-plus-square" aria-hidden="true" style="font-size:40px;color:#d34836;"></i> &nbsp; <i class="fa fa-envelope" aria-hidden="true" style="font-size:40px;color:#4CAF50;"></i>
+                      <div class="sharethis-inline-share-buttons"></div>
                     </div>
                   </div>
                 </div>
@@ -93,7 +93,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="ad-apply">
-                      <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#fff;border-color:#FFC107;border-radius:0px;margin-bottom:24px;width:100%;">Søk nå</button>
+                      <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#424242;border-color:#FFC107;border-radius:3px;margin-bottom:24px;width:100%;">Søk nå</button>
                     </div>
                   </div>
                 </div>
@@ -109,7 +109,9 @@
     <div class="row">
       <div class="col-md-2">
         <% @banners.each do |banner| %>
-          <%= image_tag banner.left, class:"thumbnail", style:"margin-top:12px !important;" %>
+          <%= link_to("http://#{banner.link}") do %>
+            <%= image_tag banner.left, class:"thumbnail", style:"margin-top:12px !important;" %>
+          <% end %>
         <% end %>
       </div>
       <div class="col-md-8">
@@ -117,7 +119,7 @@
           <div class="col-md-12">
             <div class="ad-top" style="padding-top:12px;padding-bottom:48px;margin-bottom:24px;">
               <div class="pull-left">
-                <%= link_to "Gå tilbake", root_path, class:"btn btn-lg btn-default", style:"color:#424242;border-color:#fafafa;background:#fafafa;border-radius:0px;" %>
+                <%= link_to "Gå tilbake", root_path, class:"btn btn-lg btn-default", style:"color:#424242;border-color:#fafafa;background:#fafafa;border-radius:3px;" %>
               </div>
             </div>
           </div>
@@ -134,7 +136,7 @@
                       </div>
                       <% if @job.employer.profile %>
                         <div class="ad-employer-profile">
-                          <%= link_to "Vise Bedriftsprofil", employer_path, class:"btn btn-lg btn-default", style:"background:#424242;color:#fff;border-color:#424242;border-radius:0px;width:100%;margin-bottom:12px;" %>
+                          <%= link_to "Vise Bedriftsprofil", employer_path, class:"btn btn-lg btn-default", style:"background:#424242;color:#fff;border-color:#424242;border-radius:3px;width:100%;margin-bottom:12px;" %>
                         </div>
                       <% end %>
                       <div class="ad-info" style="background:#fafafa;padding:12px;margin-bottom:24px;">
@@ -175,7 +177,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="ad-apply">
-                        <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#424242 !important;border-color:#FFC107;border-radius:0px;margin-bottom:24px;width:100%;">Søk nå</button>
+                        <button class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" style="background:#FFC107;color:#424242 !important;border-color:#FFC107;border-radius:3px;margin-bottom:24px;width:100%;">Søk nå</button>
                       </div>
                     </div>
                   </div>
@@ -187,7 +189,9 @@
       </div>
       <div class="col-md-2">
         <% @banners.each do |banner| %>
-          <%= image_tag banner.right, class:"thumbnail", style:"margin-top:12px !important;" %>
+          <%= link_to("http://#{banner.link}") do %>
+            <%= image_tag banner.right, class:"thumbnail", style:"margin-top:12px !important;" %>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -208,13 +212,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Søk nå</h4>
+        <h4 class="modal-title" id="myModalLabel">Søk nå till <%= @job.title %></h4>
       </div>
       <div class="modal-body">
-        <%= render 'applies/new' %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Lukk</button>
+        <% if @job.apply_via_app %>
+          <%= render 'applies/new' %>
+        <% else %>
+          <%= render 'passes/new' %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,0 +1,29 @@
+<style>
+  .input-lg {
+    font-size:13px;
+    box-shadow:none;
+    border:1px solid #f5f5f5;
+    border-radius: 3px;
+  }
+</style>
+
+<div class="apply-form">
+    <%= form_for Pass.new do |f| %>
+      <div class="form-group">
+        <label>Namn</label>
+        <%= f.text_field :name, required: true, class:"form-control input-lg" %>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <%= f.email_field :email, required: true, class:"form-control input-lg" %>
+      </div>
+
+        <div class="hidden">
+            <%= f.label :nickname %><br>
+            <%= f.text_field :nickname, hint: 'leave this field blank' %>
+        </div>
+      <div class="form-group">
+        <%= f.submit 'Gå vidare', class: "btn btn-lg", style:"width:100%;background:#FFC107;border-color:#FFC107;font-size:14px;font-weight:500;border-radius:3px;" %>
+      </div>
+    <% end %>
+</div>

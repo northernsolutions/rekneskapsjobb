@@ -1,13 +1,8 @@
-class Apply < MailForm::Base
+class Pass < MailForm::Base
 
   attribute :name,      :validate => true
   attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
-  attribute :message,   :validate => true
-  attribute :phone,   :validate => true
-  attributes :cv, :attachment => true
-  attributes :letter, :attachment => true
   attribute :nickname,  :captcha  => true
-
 
   def headers
     {

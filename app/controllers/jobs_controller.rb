@@ -17,4 +17,12 @@ class JobsController < ApplicationController
   def apply
     @apply = Apply.new
   end
+
+  def find
+    @find = Find.new
+  end
+
+  def pass
+    @pass = Pass.new
+  end
 end
