@@ -7,7 +7,7 @@ class Pass < MailForm::Base
   def headers
     {
         :subject => "Test",
-        :to => "jacobahed@gmail.com",
+        :to => "frank.northernsolutions@gmail.com",
         :from => %("#{name}" <#{email}>)
       }
   end
