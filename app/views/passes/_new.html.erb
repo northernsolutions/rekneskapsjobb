@@ -10,7 +10,7 @@
 <div class="apply-form">
     <%= form_for Pass.new do |f| %>
       <div class="form-group">
-        <label>Namn</label>
+        <label>Navn</label>
         <%= f.text_field :name, required: true, class:"form-control input-lg" %>
       </div>
       <div class="form-group">
@@ -23,9 +23,9 @@
             <%= f.text_field :nickname, hint: 'leave this field blank' %>
         </div>
       <div class="form-group">
-        <%= f.submit 'Gå vidare', class: "btn btn-lg", style:"width:100%;background:#FFC107;border-color:#FFC107;font-size:14px;font-weight:500;border-radius:3px;" %>
+        <%= f.submit 'Neste', class: "btn btn-lg", style:"width:100%;background:#FFC107;border-color:#FFC107;font-size:14px;font-weight:500;border-radius:3px;" %>
       </div>
-      
+
       <div class="form-group">
         <p class="center bold">Du som bruker vår webbapplikasjon er bundet til våre Integritetspolicy samt vår cookie policy og brukervilkår.</p>
       </div>
