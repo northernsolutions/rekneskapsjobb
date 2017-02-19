@@ -1,23 +1,34 @@
 ActiveAdmin.register Banner do
-  permit_params :link, :left, :right
+  permit_params :link, :left, :right, :top, :middle, :low, :top_link, :middle_link, :low_link
 
   show do |t|
     attributes_table do
-      row :link
-      row :left do
-        banner.left? ? image_tag(banner.left.url, height: '100') : content_tag(:span, "No Left Yet")
+      row :top_link
+      row :middle_link
+      row :low_link
+
+      row :top do
+        banner.top? ? image_tag(banner.top.url, height: '100') : content_tag(:span, "No Top Yet")
       end
-      row :right do
-        banner.right? ? image_tag(banner.right.url, height: '100') : content_tag(:span, "No Logo Yet")
+
+      row :middle do
+        banner.middle? ? image_tag(banner.middle.url, height: '100') : content_tag(:span, "No Middle Yet")
+      end
+
+      row :low do
+        banner.low? ? image_tag(banner.low.url, height: '100') : content_tag(:span, "No low Yet")
       end
     end
   end
 
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs do
-      f.input :link
-      f.input :left, hint: f.banner.left? ? image_tag(banner.left.url, height: '100') : content_tag(:span, "Upload JPG...")
-      f.input :right, hint: f.banner.right? ? image_tag(banner.right.url, height: '100') : content_tag(:span, "Upload JPG...")
+      f.input :top_link
+      f.input :middle_link
+      f.input :low_link
+      f.input :top, hint: f.banner.top? ? image_tag(banner.top.url, height: '100') : content_tag(:span, "Upload JPG...")
+      f.input :middle, hint: f.banner.middle? ? image_tag(banner.middle.url, height: '100') : content_tag(:span, "Upload JPG...")
+      f.input :low, hint: f.banner.low? ? image_tag(banner.low.url, height: '100') : content_tag(:span, "Upload JPG...")
     end
     f.actions
   end

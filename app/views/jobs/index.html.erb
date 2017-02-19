@@ -138,8 +138,14 @@
       <div class="col-md-2">
         <% @banners.each do |banner| %>
           <div class="banner">
-            <%= link_to("http://#{banner.link}") do %>
-              <%= image_tag banner.left, class:"thumbnail" %>
+            <%= link_to("http://#{banner.top_link}") do %>
+              <%= image_tag banner.top, class:"thumbnail" %>
+            <% end %>
+            <%= link_to("http://#{banner.middle_link}") do %>
+              <%= image_tag banner.middle, class:"thumbnail" %>
+            <% end %>
+            <%= link_to("http://#{banner.low_link}") do %>
+              <%= image_tag banner.low, class:"thumbnail" %>
             <% end %>
           </div>
         <% end %>
@@ -210,14 +216,37 @@
                 </div>
               </div>
             </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Søk nå till <%= job.title %></h4>
+                  </div>
+                  <div class="modal-body">
+                    <% if job.apply_via_app %>
+                      <%= render 'applies/new' %>
+                    <% else %>
+                      <%= render 'passes/new' %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
           <% end %>
         <% end %>
       </div>
       <div class="col-md-2">
         <% @banners.each do |banner| %>
           <div class="banner">
-            <%= link_to("http://#{banner.link}") do %>
-              <%= image_tag banner.right, class:"thumbnail" %>
+            <%= link_to("http://#{banner.top_link}") do %>
+              <%= image_tag banner.top, class:"thumbnail" %>
+            <% end %>
+            <%= link_to("http://#{banner.middle_link}") do %>
+              <%= image_tag banner.middle, class:"thumbnail" %>
+            <% end %>
+            <%= link_to("http://#{banner.low_link}") do %>
+              <%= image_tag banner.low, class:"thumbnail" %>
             <% end %>
           </div>
         <% end %>
@@ -225,18 +254,3 @@
     </div>
   </div>
 </page>
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Søk nå till <% @jobs.each do |job| %><%= job.title %><% end %></h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'applies/new' %>
-      </div>
-    </div>
-  </div>
-</div>
